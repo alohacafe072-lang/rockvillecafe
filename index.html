@@ -506,7 +506,7 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <div class="event-badge">Tweewekelijks</div>
       <div class="event-name">Pub & Popquiz</div>
       <div class="event-meta">Wo & Do · Om de week · 20:00</div>
-      <p class="event-desc">Pubquiz op woensdag, Popquiz op donderdag. Teams van max. 5 personen. Schrijf je team hieronder in!</p>
+      <p class="event-desc">Pubquiz op woensdag, Popquiz op donderdag. Teams van max. 5 personen. Check de agenda voor de datums.</p>
       <button class="event-signup-btn" onclick="document.getElementById('signup-form').scrollIntoView({behavior:'smooth',block:'center'})">✍️ Inschrijven</button>
     </div>
     <div class="event-card">
@@ -556,12 +556,12 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
     <h3>Inschrijven voor Quiz</h3>
     <p>Schrijf je team in voor de pub- of popquiz (max. 5 personen). Bevestiging via e-mail.</p>
     <div class="form-grid">
-      <div class="form-group"><label>Teamnaam</label><input type="text" placeholder="bijv. The Rock Knowers"></div>
-      <div class="form-group"><label>Aantal deelnemers</label><select><option value="">Selecteer...</option><option>1 persoon</option><option>2 personen</option><option>3 personen</option><option>4 personen</option><option>5 personen (max.)</option></select></div>
-      <div class="form-group"><label>Naam contactpersoon</label><input type="text" placeholder="Jouw naam"></div>
-      <div class="form-group"><label>Telefoonnummer</label><input type="tel" placeholder="+31 6..."></div>
-      <div class="form-group"><label>Evenement</label><select><option value="">Kies...</option><option>Pubquiz – Woensdag 20:00</option><option>Popquiz – Donderdag 20:00</option></select></div>
-      <div class="form-group"><label>Datum</label><input type="date"></div>
+      <div class="form-group"><label>Teamnaam *</label><input type="text" placeholder="bijv. The Rock Knowers" required></div>
+      <div class="form-group"><label>Aantal deelnemers *</label><select required><option value="">Selecteer...</option><option>1 persoon</option><option>2 personen</option><option>3 personen</option><option>4 personen</option><option>5 personen (max.)</option></select></div>
+      <div class="form-group"><label>Naam contactpersoon *</label><input type="text" placeholder="Jouw naam" required></div>
+      <div class="form-group"><label>Telefoonnummer *</label><input type="tel" placeholder="+31 6..." required></div>
+      <div class="form-group"><label>Evenement *</label><select required><option value="">Kies...</option><option>Pubquiz – Woensdag 20:00</option><option>Popquiz – Donderdag 20:00</option></select></div>
+      <div class="form-group"><label>Datum *</label><input type="date" required></div>
     </div>
     <button class="submit-btn" onclick="submitForm(this)">Team inschrijven →</button>
   </div>
@@ -612,11 +612,11 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <h3>Boek je tafel of terras</h3>
       <p>Vul het formulier in en we bevestigen zo snel mogelijk.</p>
       <div class="form-grid">
-        <div class="form-group"><label>Naam</label><input type="text" placeholder="Jouw naam"></div>
-        <div class="form-group"><label>Telefoonnummer</label><input type="tel" placeholder="+31 6..."></div>
-        <div class="form-group"><label>Datum</label><input type="date"></div>
-        <div class="form-group"><label>Tijdstip</label><input type="time"></div>
-        <div class="form-group"><label>Aantal personen</label><select><option value="">Selecteer...</option><option>1–2</option><option>3–4</option><option>5–6</option><option>7–10</option><option>10+</option></select></div>
+        <div class="form-group"><label>Naam *</label><input type="text" placeholder="Jouw naam" required></div>
+        <div class="form-group"><label>Telefoonnummer *</label><input type="tel" placeholder="+31 6..." required></div>
+        <div class="form-group"><label>Datum *</label><input type="date" required></div>
+        <div class="form-group"><label>Tijdstip *</label><input type="time" required></div>
+        <div class="form-group"><label>Aantal personen *</label><select required><option value="">Selecteer...</option><option>1–2</option><option>3–4</option><option>5–6</option><option>7–10</option><option>10+</option></select></div>
         <div class="form-group"><label>Gelegenheid</label><select><option value="">Selecteer...</option><option>Gewoon een avondje</option><option>Verjaardag</option><option>Bedrijfsuitje</option><option>Terras</option><option>Anders</option></select></div>
         <div class="form-group full"><label>Opmerkingen</label><textarea rows="3" placeholder="Bijzondere wensen, dieetwensen, etc."></textarea></div>
       </div>
@@ -729,6 +729,22 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
     });
   });
   function submitForm(btn){
+    const form = btn.closest('.signup-section, .reserve-form');
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(field => {
+      if(!field.value) {
+        field.style.borderColor = '#e53e3e';
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+    if(!valid) {
+      const first = form.querySelector('[required]:invalid, [required][value=""]');
+      alert('Vul alle verplichte velden (*) in.');
+      return;
+    }
     const orig=btn.textContent;
     btn.textContent='✓ Verzonden!';
     btn.style.background='#1a5c1a';
