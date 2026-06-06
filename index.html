@@ -650,6 +650,57 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
   </div>
 </section>
 
+
+<!-- PRIVACY STATEMENT -->
+<section id="privacy" id="privacy-section" style="padding:80px 40px;max-width:860px;margin:0 auto;display:none;">
+  <p class="section-label">Juridisch</p>
+  <h2 class="section-title">Privacy Statement</h2>
+  <div style="background:var(--dark);border:1px solid rgba(107,33,214,0.15);padding:44px;font-size:0.92rem;line-height:1.9;color:var(--cream-dim);">
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--white);margin-bottom:12px;">1. Wie zijn wij?</h3>
+    <p style="margin-bottom:20px;"><strong style="color:var(--cream);">Rockville Café</strong><br>Verdronkenoord 121, 1811 DB Alkmaar<br>KvK-nummer: 57987742<br>E-mail: <a href="mailto:info.rockvillecafe@gmail.com" style="color:var(--purple-glow);">info.rockvillecafe@gmail.com</a></p>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--white);margin-bottom:12px;">2. Welke gegevens verzamelen wij?</h3>
+    <p style="margin-bottom:20px;">Wij verzamelen de volgende persoonsgegevens wanneer je een reservering maakt of je inschrijft voor een evenement:</p>
+    <ul style="margin-left:20px;margin-bottom:20px;color:var(--cream-dim);">
+      <li>Naam</li>
+      <li>Telefoonnummer</li>
+      <li>Teamnaam (bij quiz inschrijving)</li>
+      <li>Datum en tijdstip van reservering</li>
+      <li>Eventuele opmerkingen die je zelf invult</li>
+    </ul>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--white);margin-bottom:12px;">3. Waarvoor gebruiken wij jouw gegevens?</h3>
+    <p style="margin-bottom:20px;">Wij gebruiken jouw gegevens uitsluitend voor:</p>
+    <ul style="margin-left:20px;margin-bottom:20px;">
+      <li>Het verwerken en bevestigen van jouw reservering</li>
+      <li>Het verwerken van jouw inschrijving voor een quiz of evenement</li>
+      <li>Contact met jou opnemen over jouw reservering of inschrijving</li>
+    </ul>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--white);margin-bottom:12px;">4. Hoe lang bewaren wij jouw gegevens?</h3>
+    <p style="margin-bottom:20px;">Wij bewaren jouw persoonsgegevens niet langer dan noodzakelijk. Reserveringsgegevens worden maximaal 3 maanden bewaard na het evenement of de reserveringsdatum.</p>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--white);margin-bottom:12px;">5. Delen wij jouw gegevens?</h3>
+    <p style="margin-bottom:20px;">Wij verkopen jouw gegevens nooit aan derden. Wij delen jouw gegevens alleen met partijen die noodzakelijk zijn voor onze dienstverlening, zoals onze e-mailprovider (Google), en alleen voor het doel waarvoor je ze hebt verstrekt.</p>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--white);margin-bottom:12px;">6. Cookies</h3>
+    <p style="margin-bottom:20px;">Onze website maakt gebruik van functionele en analytische cookies van derden, waaronder:</p>
+    <ul style="margin-left:20px;margin-bottom:20px;">
+      <li>Google Fonts — voor lettertypes</li>
+      <li>Behold.so — voor de Instagram feed</li>
+    </ul>
+    <p style="margin-bottom:20px;">Deze cookies verzamelen geen persoonlijke gegevens en worden alleen gebruikt voor de werking en weergave van de website.</p>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--white);margin-bottom:12px;">7. Jouw rechten</h3>
+    <p style="margin-bottom:20px;">Je hebt het recht om jouw gegevens in te zien, te laten corrigeren of te laten verwijderen. Stuur hiervoor een e-mail naar <a href="mailto:info.rockvillecafe@gmail.com" style="color:var(--purple-glow);">info.rockvillecafe@gmail.com</a>. Wij reageren binnen 30 dagen.</p>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--white);margin-bottom:12px;">8. Vragen of klachten?</h3>
+    <p style="margin-bottom:20px;">Heb je vragen over dit privacy statement? Neem dan contact met ons op via <a href="mailto:info.rockvillecafe@gmail.com" style="color:var(--purple-glow);">info.rockvillecafe@gmail.com</a>. Je kunt ook een klacht indienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl" target="_blank" style="color:var(--purple-glow);">Autoriteit Persoonsgegevens</a>.</p>
+
+    <p style="font-size:0.78rem;color:rgba(168,152,120,0.5);margin-top:28px;padding-top:16px;border-top:1px solid rgba(107,33,214,0.1);">Laatste update: juni 2026 · Rockville Café Alkmaar</p>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -672,6 +723,7 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
         <li><a href="#nieuws-section">Nieuws</a></li>
         <li><a href="#agenda-section">Agenda</a></li>
         <li><a href="#reserveren-section">Reserveren</a></li>
+        <li><a href="#" onclick="togglePrivacy(event)">Privacy statement</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -756,5 +808,38 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
     document.querySelectorAll('.nav-links a').forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'var(--purple-glow)':'';});
   });
 </script>
+
+<!-- COOKIE BALK -->
+<div id="cookiebar" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(12,12,28,0.97);border-top:1px solid rgba(107,33,214,0.35);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;backdrop-filter:blur(10px);">
+  <p style="font-family:'Oswald',sans-serif;font-size:0.78rem;letter-spacing:0.1em;color:var(--cream-dim);margin:0;">
+    🍪 Wij gebruiken cookies voor Google Fonts en onze Instagram feed. Geen tracking, geen advertenties.
+    <a href="#" onclick="togglePrivacy(event)" style="color:var(--purple-glow);margin-left:8px;">Meer info →</a>
+  </p>
+  <button onclick="acceptCookies()" style="background:var(--purple);color:var(--white);font-family:'Oswald',sans-serif;font-weight:600;font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;border:none;padding:10px 28px;cursor:pointer;white-space:nowrap;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);flex-shrink:0;">Akkoord ✓</button>
+</div>
+
+<script>
+  // Cookie balk
+  function acceptCookies(){
+    document.getElementById('cookiebar').style.display='none';
+    localStorage.setItem('cookies_accepted','true');
+  }
+  if(localStorage.getItem('cookies_accepted')==='true'){
+    document.getElementById('cookiebar').style.display='none';
+  }
+
+  // Privacy toggle
+  function togglePrivacy(e){
+    e.preventDefault();
+    const s=document.getElementById('privacy-section');
+    if(s.style.display==='none'||!s.style.display){
+      s.style.display='block';
+      setTimeout(()=>s.scrollIntoView({behavior:'smooth',block:'start'}),100);
+    } else {
+      s.style.display='none';
+    }
+  }
+</script>
+
 </body>
 </html>
