@@ -228,6 +228,9 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
 
 /* MOBILE */
 @media(max-width:768px){
+  footer { padding:40px 20px 20px; }
+  footer > div > div:first-child { grid-template-columns:1fr !important; gap:32px; text-align:center; }
+  footer .footer-hours-grid { grid-template-columns:1fr !important; }
   nav{padding:0 20px;}
   .nav-links{display:none;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--dark);padding:16px;gap:0;border-bottom:1px solid rgba(107,33,214,0.2);}
   .nav-links.open{display:flex;}
@@ -253,6 +256,78 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
   #social-section{padding:60px 20px;}
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarOrPub",
+  "name": "Rockville Café",
+  "description": "Alternatief rock-café aan het Verdronkenoord in Alkmaar met live muziek, pubquiz, karaoke, cocktails en een bomvolle agenda.",
+  "url": "https://www.rockvillecafe.nl",
+  "logo": "https://www.rockvillecafe.nl/rockville-logo-2025.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Verdronkenoord 121",
+    "addressLocality": "Alkmaar",
+    "postalCode": "1811 DB",
+    "addressCountry": "NL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 52.6324,
+    "longitude": 4.7534
+  },
+  "telephone": "",
+  "email": "info.rockvillecafe@gmail.com",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Monday",
+      "opens": "17:00",
+      "closes": "01:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday"],
+      "opens": "14:00",
+      "closes": "01:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "14:00",
+      "closes": "02:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "11:00",
+      "closes": "03:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "12:00",
+      "closes": "03:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "12:00",
+      "closes": "01:00"
+    }
+  ],
+  "servesCuisine": ["Burgers", "Bar snacks", "Cocktails"],
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card",
+  "sameAs": [
+    "https://www.instagram.com/rockvillecafe/",
+    "https://www.facebook.com/rockvillecafe/",
+    "https://www.tiktok.com/@rockvillecafe"
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -315,7 +390,7 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
     <h2 class="section-title">Het verhaal</h2>
     <p>Welkom bij Rockville Café, het alternatieve rock-café aan het historische Verdronkenoord in Alkmaar. Rockville is geen doorsnee café — het is een plek die leeft. Een plek waar je binnenloopt voor een goed gesprek aan de bar, maar blijft hangen vanwege de gezellige vibe en een soundtrack die je nergens anders hoort.</p>
     <p>Onze bar is gevuld met zorgvuldig geselecteerde speciaalbieren en creatieve cocktails — de perfecte match met onze menukaart. Die bestaat uit luxe <em>'Haute Friture'</em> bites om te delen en vers gerookte specialiteiten uit onze eigen smoker, zoals onze befaamde burgers, wings en pulled meats.</p>
-    <p>Wat Rockville echt uniek maakt, is onze bomvolle agenda. Van fanatieke pooltoernooien en breinbrekende pub & popquizzen tot meezingen tijdens onze tweewekelijkse karaoke en genieten van rauwe livemuziek — er is altijd een reden om langs te komen. Pak een keu, kies een bordspel, of claim je plekje op ons terras op de brug. Rockville wacht.</p>
+    <p>Wat Rockville echt uniek maakt, is onze bomvolle agenda. Van fanatieke pooltoernooien en breinbrekende pub & muziekquizzen tot meezingen tijdens onze tweewekelijkse karaoke en genieten van rauwe livemuziek — er is altijd een reden om langs te komen. Pak een keu, kies een bordspel, of claim je plekje op ons terras op de brug. Rockville wacht.</p>
     <a href="#agenda-section" class="agenda-btn">📅 Bekijk onze agenda</a>
   </div>
   <div class="pillars">
@@ -519,16 +594,9 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
     <div class="event-card">
       <span class="event-icon">🧠🎵</span>
       <div class="event-badge">Tweewekelijks</div>
-      <div class="event-name">Pub & Popquiz</div>
+      <div class="event-name">Pub & Muziekquiz</div>
       <div class="event-meta">Wo & Do · Om de week · 20:00</div>
-      <p class="event-desc">Pubquiz op woensdag, Popquiz op donderdag. Teams van max. 5 personen.</p>
-      <div style="margin-bottom:14px;text-align:left;">
-        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:8px;">Komende data:</div>
-        <div style="font-size:0.85rem;color:var(--cream-dim);line-height:1.9;">
-          3 juni · 1 juli<br>
-          <span style="color:var(--amber-glow);font-size:0.75rem;">Definitieve lijst volgt</span>
-        </div>
-      </div>
+      <p class="event-desc">Pubquiz op woensdag, Muziekquiz op donderdag.<br>Zie datums in ons inschrijfformulier.<br>Teams van max. 5 personen.</p>
       <button class="event-signup-btn" onclick="document.getElementById('signup-form').scrollIntoView({behavior:'smooth',block:'center'})">✍️ Inschrijven</button>
     </div>
     <div class="event-card">
@@ -546,7 +614,7 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <span class="event-icon">🎸</span>
       <div class="event-badge">Wisselend</div>
       <div class="event-name">Live Muziek</div>
-      <div class="event-meta">Incidenteel · Vanaf 22:00</div>
+      <div class="event-meta">Regelmatig · Vanaf 22:00</div>
       <p class="event-desc">Rauwe livemuziek op wisselende avonden. Bekijk ons laatste nieuws voor de aankondigingen!</p>
       <div style="margin-top:8px;text-align:left;">
         <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:6px;">Komende data:</div>
@@ -586,14 +654,31 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
   <!-- Inschrijfformulier -->
   <div class="signup-section" id="signup-form" style="margin-top:48px;">
     <h3>Inschrijven voor Quiz</h3>
-    <p>Schrijf je team in voor de pub- of popquiz (max. 5 personen). Bevestiging via e-mail.</p>
+    <p>Schrijf je team in voor de pub- of muziekquiz (max. 5 personen). Bevestiging via e-mail.</p>
     <div class="form-grid">
       <div class="form-group"><label>Teamnaam *</label><input type="text" placeholder="bijv. The Rock Knowers" required></div>
       <div class="form-group"><label>Aantal deelnemers *</label><select required><option value="">Selecteer...</option><option>1 persoon</option><option>2 personen</option><option>3 personen</option><option>4 personen</option><option>5 personen (max.)</option></select></div>
       <div class="form-group"><label>Naam contactpersoon *</label><input type="text" placeholder="Jouw naam" required></div>
       <div class="form-group"><label>Telefoonnummer *</label><input type="tel" placeholder="+31 6..." required></div>
-      <div class="form-group"><label>Evenement *</label><select required><option value="">Kies...</option><option>Pubquiz – Woensdag 20:00</option><option>Popquiz – Donderdag 20:00</option></select></div>
-      <div class="form-group"><label>Datum *</label><input type="date" required></div>
+      <div class="form-group"><label>Evenement *</label><select required>
+        <option value="">Kies je datum...</option>
+        <option>Wo 10 juni 20:00 · Sportquiz</option>
+        <option>Do 18 juni 20:00 · Muziekquiz</option>
+        <option>Wo 1 juli 20:00 · Pubquiz</option>
+        <option>Do 16 juli 20:00 · Muziekquiz</option>
+        <option>Wo 12 aug 20:00 · Pubquiz</option>
+        <option>Do 20 aug 20:00 · Muziekquiz</option>
+        <option>Wo 26 aug 20:00 · Filmquiz</option>
+        <option>Wo 2 sep 20:00 · Pubquiz</option>
+        <option>Do 17 sep 20:00 · Muziekquiz</option>
+        <option>Wo 7 okt 20:00 · Pubquiz</option>
+        <option>Do 15 okt 20:00 · Muziekquiz</option>
+        <option>Wo 4 nov 20:00 · Pubquiz</option>
+        <option>Do 19 nov 20:00 · Muziekquiz</option>
+        <option>Wo 2 dec 20:00 · Pubquiz</option>
+        <option>Do 17 dec 20:00 · Muziekquiz</option>
+      </select></div>
+
     </div>
     <button class="submit-btn" onclick="submitForm(this)">Team inschrijven →</button>
   </div>
@@ -612,7 +697,7 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <div class="form-grid">
         <div class="form-group"><label>Naam *</label><input type="text" placeholder="Jouw naam" required></div>
         <div class="form-group"><label>Telefoonnummer *</label><input type="tel" placeholder="+31 6..." required></div>
-        <div class="form-group"><label>Datum *</label><input type="date" required></div>
+  
         <div class="form-group"><label>Tijdstip *</label><input type="time" required></div>
         <div class="form-group"><label>Aantal personen *</label><select required><option value="">Selecteer...</option><option>1–2</option><option>3–4</option><option>5–6</option><option>7–10</option><option>10+</option></select></div>
         <div class="form-group"><label>Gelegenheid</label><select><option value="">Selecteer...</option><option>Gewoon een avondje</option><option>Verjaardag</option><option>Bedrijfsuitje</option><option>Anders</option></select></div>
@@ -723,7 +808,7 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <!-- Openingstijden -->
       <div>
         <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:18px;">Openingstijden</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;font-family:'Oswald',sans-serif;font-weight:300;font-size:0.85rem;">
+        <div class="footer-hours-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;font-family:'Oswald',sans-serif;font-weight:300;font-size:0.85rem;">
           <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Ma</strong> 17:00–01:00</span>
           <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Vr</strong> 11:00–03:00</span>
           <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Di–Wo</strong> 14:00–01:00</span>
