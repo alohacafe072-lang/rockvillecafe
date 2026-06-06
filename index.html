@@ -645,7 +645,7 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
 
 
 <!-- PRIVACY STATEMENT -->
-<section id="privacy" id="privacy-section" style="padding:80px 40px;max-width:860px;margin:0 auto;display:none;">
+<section id="privacy-section" style="padding:80px 40px;max-width:860px;margin:0 auto;display:none;">
   <p class="section-label">Juridisch</p>
   <h2 class="section-title">Privacy Statement</h2>
   <div style="background:var(--dark);border:1px solid rgba(107,33,214,0.15);padding:44px;font-size:0.92rem;line-height:1.9;color:var(--cream-dim);">
@@ -714,7 +714,7 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <!-- Logo midden -->
       <div style="display:flex;align-items:center;justify-content:center;">
         <div style="position:relative;width:220px;height:220px;display:flex;align-items:center;justify-content:center;">
-          <div style="position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(107,33,214,0.5);animation:ringPulse 3s ease-in-out infinite;"></div>
+          <div style="position:absolute;border-radius:50%;width:220px;height:220px;border:1.5px solid rgba(107,33,214,0.5);animation:ringPulse 3s ease-in-out infinite;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
           <div style="position:absolute;border-radius:50%;width:260px;height:260px;border:1.5px solid rgba(107,33,214,0.25);animation:ringPulse 3s 0.5s ease-in-out infinite;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
           <img src="rockville-logo-2025.png" alt="Rockville Café" style="width:180px;height:180px;border-radius:50%;filter:drop-shadow(0 0 24px rgba(107,33,214,0.9));animation:logoPulse 3s ease-in-out infinite;position:relative;z-index:2;">
         </div>
@@ -834,10 +834,13 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
   }
   function showPrivacy(e){
     if(e) e.preventDefault();
-    const s=document.getElementById('privacy-section');
+    // Probeer beide mogelijke IDs
+    const s = document.getElementById('privacy-section') || document.getElementById('privacy');
     if(s){
-      s.style.display='block';
-      setTimeout(()=>s.scrollIntoView({behavior:'smooth',block:'start'}),100);
+      s.style.display = 'block';
+      setTimeout(()=>s.scrollIntoView({behavior:'smooth', block:'start'}), 100);
+    } else {
+      console.log('Privacy section niet gevonden');
     }
   }
 </script>
