@@ -206,24 +206,17 @@ section { padding:100px 40px; max-width:1200px; margin:0 auto; }
 
 /* FOOTER */
 footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); padding:56px 40px 28px; }
-.footer-grid { max-width:1200px; margin:0 auto 44px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; text-align:center; }
-.footer-brand .logo { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:0.1em; color:var(--white); display:block; }
-.footer-brand .logo-city { font-family:'Oswald',sans-serif; font-weight:300; font-size:0.68rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--purple-glow); margin-bottom:14px; display:block; }
-.footer-brand p { color:var(--cream-dim); font-size:0.88rem; line-height:1.7; margin-bottom:20px; }
-.footer-social { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-.footer-social a { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; font-family:'Oswald',sans-serif; font-weight:400; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; text-decoration:none; transition:all 0.25s; clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%); }
-.footer-social a svg { width:14px; height:14px; fill:currentColor; }
-.footer-social .fb { background:rgba(24,119,242,0.15); border:1px solid rgba(24,119,242,0.3); color:#6aabff; }
-.footer-social .fb:hover { background:#1877f2; color:var(--white); }
-.footer-social .ig { background:rgba(220,39,67,0.1); border:1px solid rgba(220,39,67,0.3); color:#f97b8b; }
-.footer-social .ig:hover { background:linear-gradient(135deg,#f09433,#dc2743,#bc1888); color:var(--white); }
-.footer-social .tt { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:var(--cream-dim); }
-.footer-social .tt:hover { background:#010101; color:var(--white); }
+.footer-inner { max-width:1200px; margin:0 auto; }
+.footer-top { display:grid; grid-template-columns:1fr auto 1fr; gap:40px; margin-bottom:40px; padding-bottom:40px; border-bottom:1px solid rgba(107,33,214,0.1); align-items:center; }
 .footer-col h5 { font-family:'Oswald',sans-serif; font-weight:600; font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--purple-glow); margin-bottom:18px; }
-.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:9px; align-items:center; }
-.footer-col ul a { color:var(--cream-dim); text-decoration:none; font-size:0.88rem; transition:color 0.2s; }
-.footer-col ul a:hover { color:var(--purple-glow); }
-.footer-bottom { max-width:1200px; margin:0 auto; padding-top:22px; border-top:1px solid rgba(107,33,214,0.1); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+.footer-col p { color:var(--cream-dim); font-size:0.92rem; line-height:1.9; }
+.footer-hours { display:grid; grid-template-columns:1fr 1fr; gap:4px 32px; }
+.footer-hours span { font-family:'Oswald',sans-serif; font-weight:300; font-size:0.85rem; color:var(--cream-dim); }
+.footer-hours span strong { color:var(--cream); font-weight:400; }
+.footer-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:8px 24px; margin-bottom:28px; padding:20px 0; border-top:1px solid rgba(107,33,214,0.15); border-bottom:1px solid rgba(107,33,214,0.15); }
+.footer-nav a { font-family:'Oswald',sans-serif; font-weight:300; font-size:0.78rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--cream-dim); text-decoration:none; transition:color 0.2s; }
+.footer-nav a:hover { color:var(--purple-glow); }
+.footer-bottom { padding-top:20px; border-top:1px solid rgba(107,33,214,0.1); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 .footer-bottom p { color:rgba(168,152,120,0.4); font-size:0.78rem; font-family:'Oswald',sans-serif; font-weight:300; letter-spacing:0.1em; }
 
 /* ANIMATIONS */
@@ -246,7 +239,7 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
   #over-ons{padding:80px 20px 60px;}
   .pillars{grid-template-columns:1fr 1fr;}
   .form-grid{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;gap:28px;}
+
   .menu-grid{grid-template-columns:1fr;}
   .menu-full-grid{grid-template-columns:1fr;}
   .specials-grid{grid-template-columns:1fr;}
@@ -703,50 +696,52 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <span class="logo">Rockville Café</span>
-      <span class="logo-city">Alkmaar</span>
-      <p>Het alternatieve rock-café aan het historische Verdronkenoord. For those about to Rock... We serve you!</p>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/rockvillecafe/" target="_blank" class="ig"><svg viewBox="0 0 24 24"><use href="#icon-instagram"/></svg>Instagram</a>
-        <a href="https://www.facebook.com/rockvillecafe/" target="_blank" class="fb"><svg viewBox="0 0 24 24"><use href="#icon-facebook"/></svg>Facebook</a>
-        <a href="https://www.tiktok.com/@rockvillecafe" target="_blank" class="tt"><svg viewBox="0 0 24 24"><use href="#icon-tiktok"/></svg>TikTok</a>
+  <div class="footer-inner">
+
+    <!-- Rij 1: Contact + Logo + Openingstijden -->
+    <div style="display:grid;grid-template-columns:1fr 280px 1fr;gap:40px;align-items:center;padding-bottom:40px;border-bottom:1px solid rgba(107,33,214,0.1);margin-bottom:28px;">
+
+      <!-- Contact -->
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:18px;">Contact & Locatie</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.05em;color:var(--white);margin-bottom:8px;">Rockville Café</div>
+        <div style="font-size:0.92rem;color:var(--cream-dim);line-height:1.9;">
+          <a href="https://maps.google.com/?q=Verdronkenoord+121+Alkmaar" target="_blank" style="color:var(--cream-dim);text-decoration:none;" onmouseover="this.style.color='var(--purple-glow)'" onmouseout="this.style.color='var(--cream-dim)'">Verdronkenoord 121</a><br>
+          1811 DB Alkmaar
+        </div>
+      </div>
+
+      <!-- Logo midden -->
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <div style="position:relative;width:220px;height:220px;display:flex;align-items:center;justify-content:center;">
+          <div style="position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(107,33,214,0.5);animation:ringPulse 3s ease-in-out infinite;"></div>
+          <div style="position:absolute;border-radius:50%;width:260px;height:260px;border:1.5px solid rgba(107,33,214,0.25);animation:ringPulse 3s 0.5s ease-in-out infinite;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+          <img src="rockville-logo-2025.png" alt="Rockville Café" style="width:180px;height:180px;border-radius:50%;filter:drop-shadow(0 0 24px rgba(107,33,214,0.9));animation:logoPulse 3s ease-in-out infinite;position:relative;z-index:2;">
+        </div>
+      </div>
+
+      <!-- Openingstijden -->
+      <div>
+        <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:18px;">Openingstijden</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;font-family:'Oswald',sans-serif;font-weight:300;font-size:0.85rem;">
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Ma</strong> 17:00–01:00</span>
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Vr</strong> 11:00–03:00</span>
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Di–Wo</strong> 14:00–01:00</span>
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Za</strong> 12:00–03:00</span>
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Do</strong> 14:00–02:00</span>
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Zo</strong> 12:00–01:00</span>
+        </div>
       </div>
     </div>
-    <div class="footer-col">
-      <h5>Navigatie</h5>
-      <ul>
-        <li><a href="#over-ons">Over ons</a></li>
-        <li><a href="#menu-section">Menu</a></li>
-        <li><a href="#specials-section">Specials</a></li>
-        <li><a href="#nieuws-section">Nieuws</a></li>
-        <li><a href="#agenda-section">Agenda</a></li>
-        <li><a href="#reserveren-section">Reserveren</a></li>
-        <li><a href="#" onclick="togglePrivacy(event)">Privacy statement</a></li>
-      </ul>
+
+    <!-- Rij 2: Copyright + Privacy -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <p style="color:var(--cream-dim);font-size:0.78rem;font-family:'Oswald',sans-serif;font-weight:300;letter-spacing:0.1em;">© 2026 Rockville Café · Alkmaar · rockvillecafe.nl</p>
+      <p style="color:var(--cream-dim);font-size:0.78rem;font-family:'Oswald',sans-serif;font-weight:300;letter-spacing:0.1em;">
+        <a href="#" onclick="showPrivacy(event)" style="color:var(--purple-glow);text-decoration:none;">Privacy statement</a> · For those about to Rock 🤘
+      </p>
     </div>
-    <div class="footer-col">
-      <h5>Contact & Locatie</h5>
-      <ul>
-        <li><a href="https://maps.google.com/?q=Verdronkenoord+121+Alkmaar" target="_blank">📍 Verdronkenoord 121, Alkmaar</a></li>
-        <li><a href="mailto:info.rockvillecafe@gmail.com">📧 info.rockvillecafe@gmail.com</a></li>
-        <li><a href="#">📞 Telefoonnummer volgt</a></li>
-      </ul>
-      <h5 style="margin-top:24px;">Openingstijden</h5>
-      <ul>
-        <li><a href="#">Ma 17:00–01:00</a></li>
-        <li><a href="#">Di–Wo 14:00–01:00</a></li>
-        <li><a href="#">Do 14:00–02:00</a></li>
-        <li><a href="#">Vr 11:00–03:00</a></li>
-        <li><a href="#">Za 12:00–03:00</a></li>
-        <li><a href="#">Zo 12:00–01:00</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Rockville Café · Alkmaar · rockvillecafe.nl</p>
-    <p>For those about to Rock 🤘</p>
+
   </div>
 </footer>
 
@@ -821,22 +816,28 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
 <script>
   // Cookie balk
   function acceptCookies(){
-    document.getElementById('cookiebar').style.display='none';
-    localStorage.setItem('cookies_accepted','true');
+    const cb=document.getElementById('cookiebar');
+    if(cb) cb.style.display='none';
+    try{localStorage.setItem('cookies_accepted','true');}catch(e){}
   }
-  if(localStorage.getItem('cookies_accepted')==='true'){
-    document.getElementById('cookiebar').style.display='none';
-  }
+  try{
+    if(localStorage.getItem('cookies_accepted')==='true'){
+      const cb=document.getElementById('cookiebar');
+      if(cb) cb.style.display='none';
+    }
+  }catch(e){}
 
   // Privacy toggle
   function togglePrivacy(e){
     e.preventDefault();
+    showPrivacy(e);
+  }
+  function showPrivacy(e){
+    if(e) e.preventDefault();
     const s=document.getElementById('privacy-section');
-    if(s.style.display==='none'||!s.style.display){
+    if(s){
       s.style.display='block';
       setTimeout(()=>s.scrollIntoView({behavior:'smooth',block:'start'}),100);
-    } else {
-      s.style.display='none';
     }
   }
 </script>
