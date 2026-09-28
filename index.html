@@ -201,9 +201,6 @@ section { padding:100px 40px; max-width:1200px; margin:0 auto; }
   cursor: pointer;
 }
 .form-group select option { background:var(--dark); }
-.lokaas { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
-.veld-hint { font-size:0.8rem; color:var(--cream-dim); font-style:italic; margin-top:4px; line-height:1.4; }
-.veld-hint.let-op { color:var(--amber-glow); }
 .submit-btn { margin-top:6px; background:var(--purple); color:var(--white); font-family:'Oswald',sans-serif; font-weight:600; font-size:0.82rem; letter-spacing:0.2em; text-transform:uppercase; border:none; padding:15px 44px; cursor:pointer; transition:all 0.25s; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); display:block; margin:14px auto 0; }
 .submit-btn:hover { background:var(--purple-light); transform:translateY(-1px); }
 
@@ -314,38 +311,26 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Monday",
+      "dayOfWeek": ["Tuesday", "Wednesday"],
       "opens": "17:00",
       "closes": "01:00"
     },
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Tuesday", "Wednesday"],
-      "opens": "14:00",
-      "closes": "01:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Thursday",
-      "opens": "14:00",
+      "opens": "17:00",
       "closes": "02:00"
     },
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Friday",
-      "opens": "11:00",
-      "closes": "03:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
+      "dayOfWeek": ["Friday", "Saturday"],
       "opens": "12:00",
       "closes": "03:00"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Sunday",
-      "opens": "12:00",
+      "opens": "14:00",
       "closes": "01:00"
     }
   ],
@@ -637,7 +622,10 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <div class="event-name">Karaoke</div>
       <div class="event-meta">Om de week · Donderdag · 21:00</div>
       <p class="event-desc">Pak de mic en schitter! Gewoon binnenlopen, geen reservering nodig.</p>
-      <div id="agendaKaraoke" style="margin-top:8px;text-align:left;"></div>
+      <div style="margin-top:8px;text-align:left;">
+        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:6px;">Komende data:</div>
+        <div style="font-size:0.85rem;color:var(--cream-dim);line-height:1.9;">11 juni · 25 juni · 9 juli · 23 juli</div>
+      </div>
     </div>
     <div class="event-card">
       <span class="event-icon">🎸</span>
@@ -645,7 +633,10 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <div class="event-name">Live Muziek</div>
       <div class="event-meta">Regelmatig · Vanaf 22:00</div>
       <p class="event-desc">Rauwe livemuziek op wisselende avonden. Bekijk ons laatste nieuws voor de aankondigingen!</p>
-      <div id="agendaLive" style="margin-top:8px;text-align:left;"></div>
+      <div style="margin-top:8px;text-align:left;">
+        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:6px;">Komende data:</div>
+        <div style="font-size:0.85rem;color:var(--cream-dim);line-height:1.9;">20 juni — Emo Night 🎸<br>26 juni — The Wildfires</div>
+      </div>
     </div>
     <div class="event-card">
       <span class="event-icon">🎱</span>
@@ -653,7 +644,10 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <div class="event-name">Pool Tournament</div>
       <div class="event-meta">Wisselende data</div>
       <p class="event-desc">Pak een keu en laat zien wat je kan. Iedereen welkom, van beginner tot pro!</p>
-      <div id="agendaPool" style="margin-top:8px;text-align:left;"></div>
+      <div style="margin-top:8px;text-align:left;">
+        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:6px;">Komende data:</div>
+        <div style="font-size:0.85rem;color:var(--cream-dim);line-height:1.9;">21 juni · 19 juli</div>
+      </div>
     </div>
     <div class="event-card">
       <span class="event-icon">🎶</span>
@@ -678,15 +672,29 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
   <form class="signup-section" id="signup-form" style="margin-top:48px;" data-soort="quiz" onsubmit="return handleSubmit(event)">
     <h3>Inschrijven voor Quiz</h3>
     <p>Schrijf je team in voor de pub- of muziekquiz (max. 5 personen). Bevestiging via e-mail.</p>
-    <div class="lokaas" aria-hidden="true"><label>Website</label><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
     <div class="form-grid">
       <div class="form-group"><label>Teamnaam *</label><input type="text" name="Teamnaam" placeholder="bijv. The Rock Knowers" required></div>
       <div class="form-group"><label>Aantal deelnemers *</label><select name="Aantal deelnemers" required><option value="">Selecteer...</option><option>1 persoon</option><option>2 personen</option><option>3 personen</option><option>4 personen</option><option>5 personen (max.)</option></select></div>
       <div class="form-group"><label>Naam contactpersoon *</label><input type="text" name="Contactpersoon" placeholder="Jouw naam" required></div>
       <div class="form-group"><label>E-mailadres *</label><input type="email" name="email" placeholder="jouw@email.nl" required></div>
       <div class="form-group"><label>Telefoonnummer *</label><input type="tel" name="Telefoonnummer" placeholder="+31 6..." required></div>
-      <div class="form-group full"><label>Evenement *</label><select name="Evenement" id="quizKeuze" required>
+      <div class="form-group full"><label>Evenement *</label><select name="Evenement" required>
         <option value="">Kies je datum...</option>
+        <option>Wo 10 juni 20:00 · Sportquiz</option>
+        <option>Do 18 juni 20:00 · Muziekquiz</option>
+        <option>Wo 1 juli 20:00 · Pubquiz</option>
+        <option>Do 16 juli 20:00 · Muziekquiz</option>
+        <option>Wo 12 aug 20:00 · Pubquiz</option>
+        <option>Do 20 aug 20:00 · Muziekquiz</option>
+        <option>Wo 26 aug 20:00 · Filmquiz</option>
+        <option>Wo 2 sep 20:00 · Pubquiz</option>
+        <option>Do 17 sep 20:00 · Muziekquiz</option>
+        <option>Wo 7 okt 20:00 · Pubquiz</option>
+        <option>Do 15 okt 20:00 · Muziekquiz</option>
+        <option>Wo 4 nov 20:00 · Pubquiz</option>
+        <option>Do 19 nov 20:00 · Muziekquiz</option>
+        <option>Wo 2 dec 20:00 · Pubquiz</option>
+        <option>Do 17 dec 20:00 · Muziekquiz</option>
       </select></div>
 
     </div>
@@ -704,22 +712,21 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
     <form class="reserve-form" data-soort="reservering" onsubmit="return handleSubmit(event)">
       <h3>Boek een tafel</h3>
       <p>Vul het formulier in en we bevestigen zo snel mogelijk.</p>
-      <div class="lokaas" aria-hidden="true"><label>Website</label><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
-    <div class="form-grid">
+      <div class="form-grid">
         <div class="form-group"><label>Naam *</label><input type="text" name="Naam" placeholder="Jouw naam" required></div>
         <div class="form-group"><label>Telefoonnummer *</label><input type="tel" name="Telefoonnummer" placeholder="+31 6..." required></div>
         <div class="form-group"><label>E-mailadres *</label><input type="email" name="email" placeholder="jouw@email.nl" required></div>
-        <div class="form-group"><label>Datum *</label><input type="date" name="Datum" id="resDatum" required onchange="checkDatum()"><span id="datumHint" class="veld-hint"></span></div>
-        <div class="form-group"><label>Tijdstip *</label><input type="time" name="Tijdstip" id="resTijd" required onchange="checkTijd()"><span id="tijdHint" class="veld-hint">Reserveren kan tot 20:00 · keuken open tot 21:00</span></div>
+        <div class="form-group"><label>Datum *</label><input type="date" name="Datum" required></div>
+        <div class="form-group"><label>Tijdstip *</label><input type="time" name="Tijdstip" required></div>
         <div class="form-group"><label>Aantal personen *</label><input type="number" name="Aantal personen" min="1" max="40" placeholder="Bijv. 4" required oninput="checkGroep(this)"><span id="groepHint" style="display:none;font-size:0.8rem;color:var(--amber-glow);font-style:italic;margin-top:4px;">Grote groep — zet even bij opmerkingen of jullie willen eten.</span></div>
-        <div class="form-group"><label>Waar hebben jullie zin in?</label><select name="Gelegenheid" id="resGelegenheid" onchange="checkKeuken()">
+        <div class="form-group"><label>Waar hebben jullie zin in?</label><select name="Gelegenheid">
           <option value="">Selecteer...</option>
           <option>Hapje eten en drinken</option>
           <option>Alleen wat drinken</option>
           <option>Wij komen voor de cocktail specials</option>
           <option>Wij komen voor de bier specials</option>
           <option>Anders — vul in bij opmerkingen</option>
-        </select><span id="keukenHint" class="veld-hint let-op" style="display:none;"></span></div>
+        </select></div>
         <div class="form-group full"><label>Opmerkingen</label><textarea name="Opmerkingen" rows="3" placeholder="Bijzondere wensen, dieetwensen, etc."></textarea></div>
       </div>
       <button type="submit" class="submit-btn" style="width:100%;">Reservering versturen →</button>
@@ -828,12 +835,12 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <div>
         <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:18px;">Openingstijden</div>
         <div class="footer-hours-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;font-family:'Oswald',sans-serif;font-weight:300;font-size:0.85rem;">
-          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Ma</strong> 17:00–01:00</span>
-          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Vr</strong> 11:00–03:00</span>
-          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Di–Wo</strong> 14:00–01:00</span>
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Ma</strong> Gesloten</span>
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Vr</strong> 12:00–03:00</span>
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Di–Wo</strong> 17:00–01:00</span>
           <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Za</strong> 12:00–03:00</span>
-          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Do</strong> 14:00–02:00</span>
-          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Zo</strong> 12:00–01:00</span>
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Do</strong> 17:00–02:00</span>
+          <span style="color:var(--cream-dim);"><strong style="color:var(--cream);font-weight:400;">Zo</strong> 14:00–01:00</span>
         </div>
       </div>
     </div>
@@ -868,113 +875,6 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
   const SUPABASE_URL = 'https://rylguyuoydducktuvaas.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_AjgrF-O0K3uOz7F8XG84Iw_YJlc-gmd';
 
-  // Moment waarop de pagina openging — gebruikt bij de botcontrole
-  const PAGINA_GEOPEND = Date.now();
-
-  // ===============================================================
-  //  A G E N D A   —   HIER WERK JE DE DATUMS BIJ
-  // ===============================================================
-  //  Schrijf de datum als jaar-maand-dag, dus 2026-09-17.
-  //  Wat geweest is verdwijnt vanzelf van de site; je hoeft niets
-  //  te verwijderen. Nieuwe datum? Regel erbij, komma erachter.
-  // ===============================================================
-  const AGENDA = {
-
-    quiz: [
-      { datum:'2026-08-26', wat:'Filmquiz'   },
-      { datum:'2026-09-02', wat:'Pubquiz'    },
-      { datum:'2026-09-17', wat:'Muziekquiz' },
-      { datum:'2026-10-07', wat:'Pubquiz'    },
-      { datum:'2026-10-15', wat:'Muziekquiz' },
-      { datum:'2026-11-04', wat:'Pubquiz'    },
-      { datum:'2026-11-19', wat:'Muziekquiz' },
-      { datum:'2026-12-02', wat:'Pubquiz'    },
-      { datum:'2026-12-17', wat:'Muziekquiz' }
-    ],
-
-    karaoke: [
-      // Voorbeeld:  { datum:'2026-09-03' },
-    ],
-
-    live: [
-      // Voorbeeld:  { datum:'2026-09-12', wat:'The Wildfires' },
-    ],
-
-    pool: [
-      // Voorbeeld:  { datum:'2026-09-20' },
-    ]
-  };
-  // ===============================================================
-
-  const AGENDA_MAANDEN = ['jan','feb','mrt','apr','mei','juni','juli','aug','sep','okt','nov','dec'];
-  const AGENDA_DAGEN   = ['Zo','Ma','Di','Wo','Do','Vr','Za'];
-
-  // Wat er staat als er (nog) geen datums bekend zijn
-  const AGENDA_LEEG =
-    'Binnenkort meer — check <a href="#nieuws-section" style="color:var(--purple-glow);' +
-    'text-decoration:none;border-bottom:1px solid rgba(168,85,247,0.4);">onze socials</a> ' +
-    'voor de aankondigingen.';
-
-  // Alles van vandaag en later; wat geweest is valt af
-  function komendeData(lijst){
-    const vandaag = new Date().toISOString().slice(0,10);
-    return (lijst || [])
-      .filter(x => x.datum >= vandaag)
-      .sort((a,b) => a.datum < b.datum ? -1 : 1);
-  }
-
-  function agendaDatum(datum, metDag){
-    const d = new Date(datum + 'T12:00:00');
-    const kort = d.getDate() + ' ' + AGENDA_MAANDEN[d.getMonth()];
-    return metDag ? AGENDA_DAGEN[d.getDay()] + ' ' + kort : kort;
-  }
-
-  // Datumlijstje in een event-kaart tekenen
-  function tekenAgendaBlok(elementId, lijst, scheiding){
-    const doel = document.getElementById(elementId);
-    if (!doel) return;
-    const komend = komendeData(lijst);
-
-    if (!komend.length) {
-      doel.innerHTML =
-        '<div style="font-size:0.85rem;color:var(--cream-dim);font-style:italic;">' +
-        AGENDA_LEEG + '</div>';
-      return;
-    }
-
-    const regels = komend.map(x =>
-      agendaDatum(x.datum, false) + (x.wat ? ' — ' + x.wat : '')
-    ).join(scheiding);
-
-    doel.innerHTML =
-      '<div style="font-family:\'Oswald\',sans-serif;font-size:0.7rem;letter-spacing:0.2em;' +
-      'text-transform:uppercase;color:var(--purple-glow);margin-bottom:6px;">Komende data:</div>' +
-      '<div style="font-size:0.85rem;color:var(--cream-dim);line-height:1.9;">' + regels + '</div>';
-  }
-
-  // Quiz-dropdown vullen met alleen datums die nog komen
-  function vulQuizKeuze(){
-    const keuze = document.getElementById('quizKeuze');
-    if (!keuze) return;
-    const komend = komendeData(AGENDA.quiz);
-
-    if (!komend.length) {
-      keuze.innerHTML = '<option value="">Nog geen datums bekend</option>';
-      return;
-    }
-
-    keuze.innerHTML = '<option value="">Kies je datum...</option>' +
-      komend.map(x => {
-        const tekst = agendaDatum(x.datum, true) + ' 20:00 · ' + x.wat;
-        return '<option>' + tekst + '</option>';
-      }).join('');
-  }
-
-  tekenAgendaBlok('agendaKaraoke', AGENDA.karaoke, ' · ');
-  tekenAgendaBlok('agendaLive',    AGENDA.live,    '<br>');
-  tekenAgendaBlok('agendaPool',    AGENDA.pool,    ' · ');
-  vulQuizKeuze();
-
   // Hamburger
   document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
   document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
@@ -999,103 +899,6 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
     if (hint) hint.style.display = Number(veld.value) > 8 ? 'block' : 'none';
   }
 
-  // ---------------------------------------------------------------
-  // OPENINGSTIJDEN — hier pas je aan als de tijden veranderen
-  // 0 = zondag, 1 = maandag, ... 6 = zaterdag
-  // ---------------------------------------------------------------
-  const OPENT = { 0:'12:00', 1:'17:00', 2:'14:00', 3:'14:00', 4:'14:00', 5:'11:00', 6:'12:00' };
-  const LAATSTE_RESERVERING = '20:00';
-  const KEUKEN_DICHT = [1, 2];              // maandag en dinsdag geen keuken
-  const DAGNAMEN = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
-
-  function dagVan(datumTekst){
-    if (!datumTekst) return null;
-    return new Date(datumTekst + 'T12:00:00').getDay();
-  }
-
-  // Datum in het verleden onmogelijk maken
-  function zetVroegsteDatum(){
-    const veld = document.getElementById('resDatum');
-    if (veld) veld.min = new Date().toISOString().slice(0,10);
-  }
-  zetVroegsteDatum();
-
-  // Bij het kiezen van een datum: tijden aanpassen aan die dag
-  function checkDatum(){
-    const datum = document.getElementById('resDatum');
-    const tijd  = document.getElementById('resTijd');
-    const hint  = document.getElementById('datumHint');
-    const dag   = dagVan(datum.value);
-    if (dag === null || !tijd) return;
-
-    tijd.min = OPENT[dag];
-    tijd.max = LAATSTE_RESERVERING;
-    if (hint) hint.textContent = 'Op ' + DAGNAMEN[dag] + ' open vanaf ' + OPENT[dag] + '.';
-
-    checkTijd();
-    checkKeuken();
-  }
-
-  // Tijd buiten het venster: meteen terugkoppelen
-  function checkTijd(){
-    const datum = document.getElementById('resDatum');
-    const tijd  = document.getElementById('resTijd');
-    const hint  = document.getElementById('tijdHint');
-    const dag   = dagVan(datum.value);
-    const vast  = 'Reserveren kan tot ' + LAATSTE_RESERVERING + ' · keuken open tot 21:00';
-
-    if (!hint) return;
-    if (dag === null || !tijd.value) { hint.textContent = vast; hint.classList.remove('let-op'); return; }
-
-    if (tijd.value < OPENT[dag]) {
-      hint.textContent = 'Op ' + DAGNAMEN[dag] + ' gaan we pas om ' + OPENT[dag] + ' open.';
-      hint.classList.add('let-op');
-    } else if (tijd.value > LAATSTE_RESERVERING) {
-      hint.textContent = 'Reserveren kan tot ' + LAATSTE_RESERVERING + '. Later op de avond ben je gewoon welkom, ook zonder reservering.';
-      hint.classList.add('let-op');
-    } else {
-      hint.textContent = vast;
-      hint.classList.remove('let-op');
-    }
-  }
-
-  // Keuken dicht op maandag en dinsdag — waarschuwen, niet blokkeren
-  function checkKeuken(){
-    const datum = document.getElementById('resDatum');
-    const kies  = document.getElementById('resGelegenheid');
-    const hint  = document.getElementById('keukenHint');
-    if (!hint || !kies) return;
-
-    const dag = dagVan(datum.value);
-    const wilEten = kies.value === 'Hapje eten en drinken';
-
-    if (wilEten && dag !== null && KEUKEN_DICHT.includes(dag)) {
-      hint.textContent = 'Let op: op ' + DAGNAMEN[dag] + ' is onze keuken gesloten. Je bent van harte welkom voor een drankje — reserveren kan gewoon.';
-      hint.style.display = 'block';
-    } else {
-      hint.style.display = 'none';
-    }
-  }
-
-  // Laatste controle vlak voor versturen
-  function reserveringNietOk(form){
-    const datum = (form.querySelector('[name="Datum"]')?.value || '');
-    const tijd  = (form.querySelector('[name="Tijdstip"]')?.value || '');
-    const dag   = dagVan(datum);
-    if (dag === null || !tijd) return null;
-
-    if (datum < new Date().toISOString().slice(0,10)) {
-      return 'Die datum is al geweest. Kies een datum vanaf vandaag.';
-    }
-    if (tijd < OPENT[dag]) {
-      return 'Op ' + DAGNAMEN[dag] + ' gaan we om ' + OPENT[dag] + ' open. Kies een later tijdstip.';
-    }
-    if (tijd > LAATSTE_RESERVERING) {
-      return 'Reserveren kan tot ' + LAATSTE_RESERVERING + '. Kom je later? Loop gerust binnen, dan zoeken we een plekje.';
-    }
-    return null;
-  }
-
   // Formulier verzenden naar Supabase
   async function handleSubmit(e){
     e.preventDefault();
@@ -1103,37 +906,6 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
     const btn  = form.querySelector('button[type="submit"]');
     const orig = btn.textContent;
     const soort = form.dataset.soort;
-
-    // ---- Botcontrole ----
-    // 1. Het lokaasveld is onzichtbaar voor mensen. Staat er iets in,
-    //    dan heeft een bot het ingevuld.
-    // 2. Een mens doet er langer dan een paar tellen over.
-    // In beide gevallen doen we alsof het gelukt is, zodat een bot
-    // niet leert wat er misging — maar we slaan niets op.
-    const lokaas = (form.querySelector('[name="website"]')?.value || '').trim();
-    const seconden = (Date.now() - PAGINA_GEOPEND) / 1000;
-
-    if (lokaas || seconden < 4) {
-      btn.textContent = soort === 'quiz'
-        ? '\u2713 Ingeschreven! Je hoort van ons.'
-        : '\u2713 Ontvangen! We bevestigen zo snel mogelijk.';
-      btn.style.background = '#1a5c1a';
-      btn.style.clipPath = 'none';
-      btn.disabled = true;
-      form.reset();
-      setTimeout(()=>{
-        btn.textContent = orig;
-        btn.style.background = '';
-        btn.style.clipPath = '';
-        btn.disabled = false;
-      }, 5000);
-      return false;
-    }
-
-    if (soort === 'reservering') {
-      const bezwaar = reserveringNietOk(form);
-      if (bezwaar) { alert(bezwaar); return false; }
-    }
 
     btn.disabled = true;
     btn.textContent = 'Versturen...';
