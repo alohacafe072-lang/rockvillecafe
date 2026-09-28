@@ -158,6 +158,8 @@ section { padding:100px 40px; max-width:1200px; margin:0 auto; }
 .event-signup-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:transparent; border:1px solid rgba(107,33,214,0.4); color:var(--purple-glow); font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; padding:8px 16px; cursor:pointer; transition:all 0.2s; }
 .event-signup-btn:hover { background:var(--purple); color:var(--white); border-color:var(--purple); }
 .agenda-nieuws-link { text-align:center; margin-top:8px; }
+.event-link { display:inline-block; margin-top:4px; font-family:'Oswald',sans-serif; font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--purple-glow); text-decoration:none; transition:color 0.2s; }
+.event-link:hover { color:var(--amber-glow); }
 .agenda-nieuws-link a { font-family:'Oswald',sans-serif; font-weight:300; font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--purple-glow); text-decoration:none; transition:color 0.2s; }
 .agenda-nieuws-link a:hover { color:var(--amber-glow); }
 
@@ -621,11 +623,8 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <div class="event-badge">Tweewekelijks · Donderdag</div>
       <div class="event-name">Karaoke</div>
       <div class="event-meta">Om de week · Donderdag · 21:00</div>
-      <p class="event-desc">Pak de mic en schitter! Gewoon binnenlopen, geen reservering nodig.</p>
-      <div style="margin-top:8px;text-align:left;">
-        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:6px;">Komende data:</div>
-        <div style="font-size:0.85rem;color:var(--cream-dim);line-height:1.9;">11 juni · 25 juni · 9 juli · 23 juli</div>
-      </div>
+      <p class="event-desc">Pak de mic en schitter! Gewoon binnenlopen, geen reservering nodig. De data kondigen we aan op Instagram.</p>
+      <a href="#nieuws-section" class="event-link">📸 Data op Instagram →</a>
     </div>
     <div class="event-card">
       <span class="event-icon">🎸</span>
@@ -633,21 +632,15 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <div class="event-name">Live Muziek</div>
       <div class="event-meta">Regelmatig · Vanaf 22:00</div>
       <p class="event-desc">Rauwe livemuziek op wisselende avonden. Bekijk ons laatste nieuws voor de aankondigingen!</p>
-      <div style="margin-top:8px;text-align:left;">
-        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:6px;">Komende data:</div>
-        <div style="font-size:0.85rem;color:var(--cream-dim);line-height:1.9;">20 juni — Emo Night 🎸<br>26 juni — The Wildfires</div>
-      </div>
+      <a href="#nieuws-section" class="event-link">📸 Data op Instagram →</a>
     </div>
     <div class="event-card">
       <span class="event-icon">🎱</span>
       <div class="event-badge">Regelmatig</div>
       <div class="event-name">Pool Tournament</div>
       <div class="event-meta">Wisselende data</div>
-      <p class="event-desc">Pak een keu en laat zien wat je kan. Iedereen welkom, van beginner tot pro!</p>
-      <div style="margin-top:8px;text-align:left;">
-        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-glow);margin-bottom:6px;">Komende data:</div>
-        <div style="font-size:0.85rem;color:var(--cream-dim);line-height:1.9;">21 juni · 19 juli</div>
-      </div>
+      <p class="event-desc">Pak een keu en laat zien wat je kan. Iedereen welkom, van beginner tot pro! De data kondigen we aan op Instagram.</p>
+      <a href="#nieuws-section" class="event-link">📸 Data op Instagram →</a>
     </div>
     <div class="event-card">
       <span class="event-icon">🎶</span>
@@ -680,21 +673,12 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
       <div class="form-group"><label>Telefoonnummer *</label><input type="tel" name="Telefoonnummer" placeholder="+31 6..." required></div>
       <div class="form-group full"><label>Evenement *</label><select name="Evenement" required>
         <option value="">Kies je datum...</option>
-        <option>Wo 10 juni 20:00 · Sportquiz</option>
-        <option>Do 18 juni 20:00 · Muziekquiz</option>
-        <option>Wo 1 juli 20:00 · Pubquiz</option>
-        <option>Do 16 juli 20:00 · Muziekquiz</option>
-        <option>Wo 12 aug 20:00 · Pubquiz</option>
-        <option>Do 20 aug 20:00 · Muziekquiz</option>
-        <option>Wo 26 aug 20:00 · Filmquiz</option>
-        <option>Wo 2 sep 20:00 · Pubquiz</option>
-        <option>Do 17 sep 20:00 · Muziekquiz</option>
-        <option>Wo 7 okt 20:00 · Pubquiz</option>
-        <option>Do 15 okt 20:00 · Muziekquiz</option>
-        <option>Wo 4 nov 20:00 · Pubquiz</option>
-        <option>Do 19 nov 20:00 · Muziekquiz</option>
-        <option>Wo 2 dec 20:00 · Pubquiz</option>
-        <option>Do 17 dec 20:00 · Muziekquiz</option>
+        <option data-datum="2026-10-07">Wo 7 okt 20:00 · Pubquiz</option>
+        <option data-datum="2026-10-15">Do 15 okt 20:00 · Muziekquiz</option>
+        <option data-datum="2026-11-04">Wo 4 nov 20:00 · Pubquiz</option>
+        <option data-datum="2026-11-19">Do 19 nov 20:00 · Muziekquiz</option>
+        <option data-datum="2026-12-02">Wo 2 dec 20:00 · Pubquiz</option>
+        <option data-datum="2026-12-17">Do 17 dec 20:00 · Muziekquiz</option>
       </select></div>
 
     </div>
@@ -986,6 +970,22 @@ footer { background:var(--dark); border-top:1px solid rgba(107,33,214,0.15); pad
     }
     return false;
   }
+
+  // Quizdata die voorbij zijn automatisch verbergen (op basis van data-datum)
+  (function(){
+    const keuze = document.querySelector('#signup-form select[name="Evenement"]');
+    if (!keuze) return;
+    const d = new Date();
+    const vandaag = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+    [...keuze.querySelectorAll('option[data-datum]')].forEach(opt => {
+      if (opt.dataset.datum < vandaag) opt.remove();
+    });
+    if (!keuze.querySelector('option[data-datum]')) {
+      const leeg = new Option('Nieuwe data volgen binnenkort', '');
+      leeg.disabled = true;
+      keuze.add(leeg);
+    }
+  })();
 
   // Active nav
   const secs=document.querySelectorAll('section[id]');
